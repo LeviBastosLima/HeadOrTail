@@ -1,52 +1,50 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Image, StyleSheet, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 
-const logo = require('../assets/imgs/logo.png')
-const play = require('../assets/imgs/botao_jogar.png')
-const otherGames = require('../assets/imgs/outros_jogos.png')
-const aboutGames = require('../assets/imgs/sobre_jogo.png')
+import logo from '../assets/imgs/logo.png';
+import play from '../assets/imgs/botao_jogar.png';
+import otherGames from '../assets/imgs/outros_jogos.png';
+import aboutGames from '../assets/imgs/sobre_jogo.png';
 
-export default class InitialScreen extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
+export default function InitialScreen () {
+    return (
+        <View style={styles.container}>
 
-                <View style={styles.body}>
+            <View style={styles.body}>
 
-                    <Image source={logo} />
+                <Image source={logo} />
 
-                    <TouchableHighlight
-                        onPress={() => {Actions.game()}}
-                    >
-                        <Image source={play} style={styles.play} />
-                    </TouchableHighlight>
+                <TouchableHighlight
+                    onPress={() => {Actions.game()}}
+                >
+                    <Image source={play} style={styles.play} />
+                </TouchableHighlight>
 
-
-                </View>
-                <View style={styles.foot}>
-
-                    <TouchableHighlight
-                        onPress={() => Actions.other()}
-                        underlayColor='#59B28C'
-                        activeOpacity={0.5}
-                    >
-                        <Image source={otherGames} />
-                    </TouchableHighlight>
-
-                    <TouchableHighlight
-                        onPress={() => { Actions.about() }}
-                        underlayColor='#59B28C'
-                        activeOpacity={0.5}
-                    >
-                        <Image source={aboutGames} />
-                    </TouchableHighlight>
-
-                </View>
 
             </View>
-        );
-    }
+            <View style={styles.foot}>
+
+                <TouchableHighlight
+                    onPress={() => Actions.other()}
+                    underlayColor='#59B28C'
+                    activeOpacity={0.5}
+                >
+                    <Image source={otherGames} />
+                </TouchableHighlight>
+
+                <TouchableHighlight
+                    onPress={() => { Actions.about() }}
+                    underlayColor='#59B28C'
+                    activeOpacity={0.5}
+                >
+                    <Image source={aboutGames} />
+                </TouchableHighlight>
+
+            </View>
+
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
